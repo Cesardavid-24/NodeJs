@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:3002
+### Recuperar las peliculas
+GET {{baseUrl}}/movies 
+
+### recuperar pelicula por ID
+GET {{baseUrl}}/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
+### recuperar peliculas por  un genero
+GET {{baseUrl}}/movies?genre=action
+
+
+### Creando un recurso
+
+POST {{baseUrl}}/movies HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Spider-Man",
+  "year": 1975,
+  "director": "Francis Ford Coppola",
+  "duration": 175,
+  "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
+  "genre": [
+    "Crime",
+    "Drama"
+  ]
+}
+
+### Actualizar una pelicula con patch
+
+PATCH http://localhost:3002/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Spider-Man",
+  "year": 2000
+}
+
+### Borrar una Pelicula 
+DELETE http://localhost:3002/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3 HTTP/1.1
+content-type: application/json 
