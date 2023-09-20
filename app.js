@@ -5,7 +5,7 @@ const cors = require('cors')
 const { validateMovie, validatePartialMovie } = require('./schema/movie')
 const app = Express()
 
-const port = process.env.PORT ?? 3000
+const PORT = process.env.PORT ?? 3000
 app.use(Express.json())
 
 app.use(cors({
@@ -101,6 +101,6 @@ app.patch('/movies/:id', (req, res) => {
   return res.json(updateMovie)
 })
 
-app.listen(port, () => {
-  console.log(`server listen ${port}`)
+app.listen(PORT, () => {
+  console.log(`server listen ${PORT}`)
 })
