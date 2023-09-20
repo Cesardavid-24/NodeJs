@@ -5,13 +5,13 @@ const cors = require('cors')
 const { validateMovie, validatePartialMovie } = require('./schema/movie')
 const app = Express()
 
-const port = process.env.PORT || 3002
+const port = process.env.PORT ?? 3000
 app.use(Express.json())
 
 app.use(cors({
   origin: (origin, callback) => {
     const ACCEPTED_ORIGINS = [
-      'http://localhost:3002',
+      'http://localhost:3000',
       'http://movies.com',
       'http://127.0.0.1:5500'
     ]
